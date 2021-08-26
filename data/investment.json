@@ -1,0 +1,44 @@
+[
+  {
+    "name": "emas",
+    "risk": "rendah",
+    "liquidity": "tinggi",
+    "gain": 10.69,
+    "year": 5
+  },
+  {
+    "name": "deposito",
+    "risk": "rendah",
+    "liquidity": "tinggi",
+    "gain": 4,
+    "year": 1
+  },
+  {
+    "name": "obligasi",
+    "risk": "rendah",
+    "liquidity": "rendah",
+    "gain": 7,
+    "year": 1
+  },
+  {
+    "name": "reksadana",
+    "risk": "sedang",
+    "liquidity": "tinggi",
+    "gain": 6,
+    "year": 3
+  },
+  {
+    "name": "properti",
+    "risk": "sedang",
+    "liquidity": "rendah",
+    "gain": 5,
+    "year": 5
+  },
+  {
+    "name": "saham",
+    "risk": "tinggi",
+    "liquidity": "tinggi",
+    "gain": 12,
+    "year": 5
+  }
+]

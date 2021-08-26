@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="http://localhost:3000/styles/style.css">
+  <title>FiPal Profile</title>
+</head>
+<body>
+  <h1 class="header1">Profil</h1>
+  <h2>Lengkapi Profil Anda!</h2>
+  <div class="form1">
+  <form action="/user/profile" method="POST">
+    <label>Email</label> <br>
+    <input type="text" name="email" value="<%= data.email ? data.email : '' %>"> <br><br>
+    <label>Nama</label> <br>
+    <input type="text" name="name" value="<%= data.name ? data.name : '' %>"> <br><br>
+    <label>Usia</label> <br>
+    <input type="number" name="age" value="<%= data.age ? data.age : '' %>"> <br><br>
+    <label>Profesi</label> <br>
+    <input type="text" name="profession" value="<%= data.profession ? data.profession : '' %>"> <br><br>
+    <label>Kota Domisili</label> <br>
+    <input type="text" name="city" value="<%= data.city ? data.city : '' %>"> <br><br>
+    <label>Nomor Hp</label> <br>
+    <input type="text" name="phone" value="<%= data.phone ? data.phone : '' %>"> <br><br>
+    <label>Penghasilan Per Bulan (Rp)</label> <br>
+    <input type="number" name="income" value="<%= data.income ? data.income : '' %>"> <br><br>
+    <label>Pengeluaran Per Bulan (Rp)</label> <br>
+    <input type="number" name="expense" value="<%= data.expense ? data.expense : '' %>"> <br><br>
+    <button class="button1" value="submit">Simpan</button>
+  </form>
+</div>
+</body>
+</html>
