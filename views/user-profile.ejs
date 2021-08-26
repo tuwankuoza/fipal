@@ -2,6 +2,29 @@
 <body>
 <%- include('partials/navbar') %>
 
+<% let Error = {} %> 
+<% let emailError = null %> 
+<% let nameError = null %> 
+<% let ageError = null %> 
+<% let professionError = null %> 
+<% let cityError = null %> 
+<% let phoneError = null %> 
+<% let incomeError = null %> 
+<% let expenseError = null %> 
+
+
+<% for (let i = 0; i < 8; i++){ %>
+    <% errors[i] === 'Validation error: Email tidak boleh kosong' ? emailError = 'Email tidak boleh kosong'  : '' %>
+    <% errors[i] === 'Validation error: Nama tidak boleh kosong' ?  nameError = 'Nama tidak boleh kosong'  : ''  %>
+    <% errors[i] === 'Validation error: Age tidak boleh kosong' ?  ageError = 'Age tidak boleh kosong'  : ''  %>
+    <% errors[i] === 'Validation error: Profession tidak boleh kosong' ?  professionError = 'Profession tidak boleh kosong'   : ''  %>
+    <% errors[i] === 'Validation error: City tidak boleh kosong' ?  cityError = 'City tidak boleh kosong'  : ''  %>
+    <% errors[i] === 'Validation error: Nomor telepon tidak boleh kosong' ?  phoneError = 'Nomor telepon tidak boleh kosong'  : ''  %>
+    <% errors[i] === 'Validation error: Pendapatan tidak boleh kosong' ?  incomeError = 'Pendapatan tidak boleh kosong'  : ''  %>
+    <% errors[i] === 'Validation error: Pengeluaran tidak boleh kosong' ?  expenseError = 'Pengeluaran tidak boleh kosong' : ''  %>
+ 
+<% } %>   
+
     <div class="text-center">
         <div class="container actioTitle">
             <div class="alert" role="alert">
@@ -18,41 +41,65 @@
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="text" class="form-control" name="email" value="<%= data.email ? data.email : '' %>">
+                                <p style="color: red"><% if(emailError){ %>
+                                  <%= emailError %>
+                                <% } %> </p>
                             </div>
 
                             <div class="form-group">
                               <label for="name">Nama</label>
                               <input type="text" class="form-control" name="name" value="<%= data.name ? data.name : '' %>">
+                              <p style="color: red"><% if(nameError){ %>
+                                <%= nameError %>
+                              <% } %> </p>
                             </div>
                             
                             <div class="form-group">
                               <label for="age">Usia</label>
                               <input type="number" class="form-control" name="age" value="<%= data.age ? data.age : '' %>">
+                              <p style="color: red"><% if(ageError){ %>
+                                <%= ageError %>
+                              <% } %> </p>
                             </div>
 
                             <div class="form-group">
                               <label for="profession">Profesi</label>
                               <input type="text" class="form-control" name="profession" value="<%= data.profession ? data.profession : '' %>">
+                              <p style="color: red"><% if(professionError){ %>
+                                <%= professionError %>
+                              <% } %> </p>
                             </div>  
 
                             <div class="form-group">
                               <label for="city">Kota Domisili</label>
                               <input type="text" class="form-control" name="city" value="<%= data.city ? data.city : '' %>">
+                              <p style="color: red"><% if(cityError){ %>
+                                <%= cityError %>
+                              <% } %> </p>
                             </div>
 
                             <div class="form-group">
                               <label for="phone">Nomor Hp</label>
                               <input type="text" class="form-control" name="phone" value="<%= data.phone ? data.phone : '' %>">
+                              <p style="color: red"><% if(phoneError){ %>
+                                <%= phoneError %>
+                              <% } %> </p>
                             </div>
 
                             <div class="form-group">
                               <label for="income">Penghasilan Per Bulan (Rp)</label>
                               <input type="number" class="form-control" name="income" value="<%= data.income ? data.income : '' %>">
+                              <p style="color: red"><% if(incomeError){ %>
+                                <%= incomeError %>
+                              <% } %> </p>
                             </div>
 
                             <div class="form-group">
                               <label for="expense">Pengeluaran Per Bulan (Rp)</label>
                               <input type="number" class="form-control" name="expense" value="<%= data.expense ? data.expense : '' %>">
+                              <p style="color: red"><% if(expenseError){ %>
+                                <%= expenseError %>
+                              <% } %> </p>
                             </div>
 
                             <div class="form-group">
@@ -66,7 +113,10 @@
         </div>
     </div>
 
-
+    <% errors.forEach(el => { %>
+      <center><p style="color: red"><%= el %></p></center>
+      <% }) %>
+    
     
 
 </body>

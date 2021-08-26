@@ -18,15 +18,78 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   User.init({
-    email: DataTypes.STRING,
-    password: DataTypes.STRING,
-    name: DataTypes.STRING,
-    age: DataTypes.INTEGER,
-    profession: DataTypes.STRING,
-    city: DataTypes.STRING,
-    phone: DataTypes.STRING,
-    income: DataTypes.INTEGER,
-    expense: DataTypes.INTEGER
+    email: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'Email tidak boleh kosong'
+        }
+      }
+    },
+    password: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'Password tidak boleh kosong'
+        }
+      }
+    },
+    name: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'Nama tidak boleh kosong'
+        }
+      }
+    },
+    age: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: {
+          msg: 'Age tidak boleh kosong'
+        }
+      }
+    },
+    profession: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'Profession tidak boleh kosong'
+        }
+      }
+    },
+    city: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'City tidak boleh kosong'
+        }
+      }
+    },
+    phone: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'Nomor telepon tidak boleh kosong'
+        }
+      }
+    },
+    income: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: {
+          msg: 'Pendapatan tidak boleh kosong'
+        }
+      }
+    },
+    expense: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: {
+          msg: 'Pengeluaran tidak boleh kosong'
+        }
+      }
+    }
   }, {
     hooks: {
       beforeCreate(instance) {
