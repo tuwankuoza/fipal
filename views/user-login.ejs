@@ -2,6 +2,8 @@
 <body>
 <%- include('partials/navbar') %>
 
+
+
   <div class="text-center">
       <div class="container actioTitle">
           <div class="alert" role="alert">
@@ -17,16 +19,19 @@
                   <div class="card-deck">
                           <div class="card-body">
                               <form class="registerForm" action="/user/login" method="POST">
-        
                                   <div class="form-group">
                                     <h6>Email</h6><br>
                                           <input type="email" class="form-control" name="email" placeholder="Enter your email">
-                                  </div><br>
+                                   
+                                  </div>
+                                  <br>
                                   <div class="form-group">
                                     <h6>Password</h6><br>
                                       <input type="password" class="form-control" name="password" placeholder="Enter your password">
+                                 
                                   </div>
-
+                               
+                              
                                   <br><button type="submit" class="btn btn-success" style="color: black">Login</button>&nbsp;&nbsp;or&nbsp;&nbsp;<button class="btn btn-primary"><a href="/user/register" style="color: white">Daftar</a></button>
                               </form>
                           </div>

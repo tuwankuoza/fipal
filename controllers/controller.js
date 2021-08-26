@@ -54,10 +54,14 @@ class Controller {
   }
   // profile
   static getUserProfile(req, res) {
+    let errors = []
+        if(req.query.error){
+            errors = req.query.error.split(",")
+        }
     let id = req.session.userId
     User.findByPk(id)
     .then(data => {
-      res.render('user-profile', {data})
+      res.render('user-profile', {data, errors})
     })
     .catch(err => res.send(err))
   }
@@ -76,7 +80,13 @@ class Controller {
     }, {
       where: {id}
     })
-    res.redirect('/user')
+    .then(data => {
+      res.redirect('/user')
+    })
+   .catch(err => {
+      console.log(err.message)
+      res.redirect(`/user/profile/?error=${err.message}`)
+    })
   }
   // user dashboard
   static userDashboard (req, res) {
