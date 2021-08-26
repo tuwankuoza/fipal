@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= data.name %> Investment</title>
+</head>
+<body>
+
+  <% if(!data.name || !data.age || !data.profession || !data.city || !data.phone || !data.income || !data.expense) { %>
+   
+    <h2>Anda Belum Melengkapi data profil</h2>
+    <h2><a href="/user/profile">Lengkapi data profil anda</a></h2>
+  
+  <% } else { %>
+
+    <h1><%= data.name %>'s Investment Plan</h1><br><br>
+    <% if(data.Investments.length === 0) { %>
+      <h2>Anda Belum Memiliki Portofolio Investasi</h2>
+      <h2><a href="invest/add">Tambahkan</a></h2>
+    <% } else { %>
+      <table border="1">
+        <tr>
+          <th>Instrumen</th>
+          <th>Resiko</th>
+          <th>Likuiditas</th>
+          <th>Annualized Return</th>
+          <th>Jangka Waktu Minimal Yang Disarankan</th>
+          <th>Action</th>
+        </tr>
+        <% data.Investments.forEach(el => { %>
+          <tr>
+            <td><%= el.name %></td>
+            <td><%= el.risk %></td>
+            <td><%= el.liquidity %></td>
+            <td><%= addPercent(el.gain) %></td>
+            <td><%= addTahun(el.year) %></td>
+            <td>
+              <a href="/user/chart">Lihat Detail</a>
+            </td>
+          </tr>
+        <% }) %>
+      </table>
+    <% } %>
+
+  <% } %>
+</body>
+</html>
