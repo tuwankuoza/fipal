@@ -1,21 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daftar Akun FiPal</title>
-</head>
-<body>
-  <h1>Daftarkan email dan password anda</h1>
-  <br>
-  <form action="/user/register" method="POST">
-    <label>Email</label> <br>
-    <input type="text" name="email"> <br><br>
+<%- include('partials/head', {pageTitle: 'Home'}) %>
 
-    <label>Password</label> <br>
-    <input type="password" name="password"> <br><br>
-    <button class="button1" value="submit">Daftar</button>
-  </form>
+<body>
+
+  <%- include('partials/navbar') %>
+</div>
+
+    <div class="text-center">
+        <div class="container actioTitle">
+            <div class="alert" role="alert">
+                <h4> Daftarkan email dan password anda </h4>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="card body">
+                <div class="container">
+                    <div class="card-deck">
+                        <div class="card" style="width: 18rem;" style=>
+                            <div class="card-body">
+                                <div style="margin-top: 1%">
+                                    <img class="card-img-top" src="/img/todo-illustration.jpg" alt="Act.io App">
+                                    <img class="card-img-top" src="/img/todo-illustration2.jpg" alt="Act.io App">
+                                </div>
+                            </div>
+                        </div>
+                            <div class="card-body">
+                                <form class="registerForm" action="/user/register" method="POST">
+                                    <div class="text-center">
+                                        <h3></h3>
+                                        <hr>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                            <input type="email" class="form-control" name="email" placeholder="Enter your email">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="email">Password</label>
+                                        <input type="password" class="form-control" name="password" placeholder="Password">
+                                    </div>
+                                    <br><button type="submit" class="btn btn-primary" style="color: white">Daftar</button>&nbsp;&nbsp;<button class="btn btn-success" style="color: black"><a href="/">Cancel</a></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
