@@ -1,17 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to FiPal</title>
-</head>
+<%- include('partials/head', {pageTitle: 'Welcome to FiPal'}) %>
 <body>
-  <h1>
-    Welcome to Fipal, your easy-to-go financial advisor!
-    <br><br>
-    <a href="/user/login">Klik disini untuk masuk</a> <br><br>
-    <a href="/user/register">Klik disini untuk mendaftar</a>
-  </h1>
+<%- include('partials/navbar') %>
+
+<div class="text-center">
+  <div class="container actioTitle">
+      <div class="alert" role="alert">
+          <h4>Welcome to FiPal your easy-to-go financial advisor!</h4>
+      </div>
+  </div>
+</div>
+<div class="container">
+  <br>
+  <div class="card">
+      <div class="card body">
+          <div class="container">
+              <div class="card-deck">
+                      <div class="card-body">
+                        <br> <br> <br> <br>
+                          <form class="registerForm" action="/user/login" method="POST">
+                          
+                              <div class="form-group">
+                               <br><center> 
+                                <label for="deadline"><button type="button" class="btn btn-outline-primary"><a href="/user/login"> User Login </a></button></label>
+                                <label for="reminder_date"><button type="button" class="btn btn-outline-primary"><a href="/user/register"> Create Account </a></button></label>
+                              </center>
+                              </div>
+                         
+                          </form>
+                          <br> <br> <br> <br>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
 </body>
 </html>
