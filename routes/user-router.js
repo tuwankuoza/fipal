@@ -3,7 +3,6 @@ const userRouter = require('express').Router();
 const loginCheck = require('../middlewares/logincheck');
 
 // login page
-// userRouter.get('/chart', Controller.seeChart)
 userRouter.get('/login', Controller.getLogin);
 userRouter.post('/login', Controller.postLogin);
 
@@ -29,6 +28,8 @@ userRouter.post('/invest/add', Controller.postAddInvestment)
 
 // // get recommendation berdasarkan data yang telah diisi
 userRouter.get('/recommendation', Controller.getRecommendation);
+
+userRouter.get('/chart/:id', Controller.seeChart);
 
 // logout page
 userRouter.get('/logout', Controller.logout);

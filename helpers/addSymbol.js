@@ -6,4 +6,8 @@ function addPercent(number) {
   return `${number} %`
 }
 
-module.exports = {addTahun, addPercent}
+function idrFormatter(number) {
+  return `Rp. ${number.toLocaleString('id-ID')}`
+}
+
+module.exports = {addTahun, addPercent, idrFormatter}
