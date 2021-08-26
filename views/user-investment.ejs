@@ -1,28 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= data.name %> Investment</title>
-</head>
+<%- include('partials/head', {pageTitle: 'Investment'}) %>
 <body>
+<%- include('partials/navbar') %>
 
   <% if(!data.name || !data.age || !data.profession || !data.city || !data.phone || !data.income || !data.expense) { %>
    
     <h2>Anda Belum Melengkapi data profil</h2>
-    <h2><a href="/user/profile">Lengkapi data profil anda</a></h2>
+    <button type="button" class="btn btn-outline-primary"><h2><a href="/user/profile">Lengkapi data profil anda</a></h2></button>
   
   <% } else { %>
-
-    <h1><%= data.name %>'s Investment Plan</h1><br><br>
+    <br>
+    <h4 style="margin-left:50px"><%= data.name %>'s Investment Plan</h4><br><br>
     <% if(data.Investments.length === 0) { %>
       <h2>Anda Belum Memiliki Portofolio Investasi</h2>
       <h2><a href="invest/add">Tambahkan</a></h2>
     <% } else { %>
-      <table border="1">
+      <div style="margin-left:50px">
+      <table style="width:80%" class="table table-hover">
         <tr>
-          <th>Instrumen</th>
+          <th>Instrument</th>
           <th>Resiko</th>
           <th>Likuiditas</th>
           <th>Annualized Return</th>
@@ -37,13 +32,18 @@
             <td><%= addPercent(el.gain) %></td>
             <td><%= addTahun(el.year) %></td>
             <td>
-              <a href="/user/chart/<%= el.id %>">Lihat Detail</a>
+
+              <button type="button" class="btn btn-outline-primary"><a href="/user/chart/<%= el.id %>">Lihat Detail</a></button>
+              
+
             </td>
           </tr>
         <% }) %>
       </table>
+    </div>
     <% } %>
 
   <% } %>
+
 </body>
 </html>

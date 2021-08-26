@@ -1,21 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login to FiPal</title>
-</head>
+<%- include('partials/head', {pageTitle: 'Login to FiPal'}) %>
 <body>
-  <h1>Masukkan email dan password anda</h1>
-  <br>
-  <form action="/user/login" method="POST">
-    <label>Email</label> <br>
-    <input type="text" name="email"> <br><br>
+<%- include('partials/navbar') %>
 
-    <label>Password</label> <br>
-    <input type="password" name="password"> <br><br>
-    <button class="button1" value="submit">Masuk</button>
-  </form>
+  <div class="text-center">
+      <div class="container actioTitle">
+          <div class="alert" role="alert">
+              <h4>Masukkan email dan password anda</h4>
+          </div>
+      </div>
+  </div>
+  <div class="container">
+      <br>
+      <div class="card">
+          <div class="card body">
+              <div class="container">
+                  <div class="card-deck">
+                          <div class="card-body">
+                              <form class="registerForm" action="/user/login" method="POST">
+        
+                                  <div class="form-group">
+                                    <h6>Email</h6><br>
+                                          <input type="email" class="form-control" name="email" placeholder="Enter your email">
+                                  </div><br>
+                                  <div class="form-group">
+                                    <h6>Password</h6><br>
+                                      <input type="password" class="form-control" name="password" placeholder="Enter your password">
+                                  </div>
+
+                                  <br><button type="submit" class="btn btn-success" style="color: black">Login</button>&nbsp;&nbsp;or&nbsp;&nbsp;<button class="btn btn-primary"><a href="/user/register" style="color: white">Daftar</a></button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </body>
 </html>

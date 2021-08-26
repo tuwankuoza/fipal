@@ -1,19 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard</title>
-</head>
+<%- include('partials/head', {pageTitle: 'User DashBoard'}) %>
 <body>
-  <h1>Selamat Datang <%= data.email %></h1>
-  <br><br><br>
-  <h2>
-    <a href="/user/logout">logout</a> <br>
-    <a href="/user/profile">Ubah Profile</a> <br>
-    <a href="/user/recommendation">Dapatkan Rekomendasi Investasi</a><br>
-    <a href="/user/invest">Investment</a>
-  </h2>
+<%- include('partials/navbar') %>
+
+<div class="text-center">
+  <div class="container actioTitle">
+      <div class="alert" role="alert">
+        <h4>Selamat datang <span class="actio-text"></span> <%= data.email %>   <span class="actio-text"></span></h4>
+      </div>
+  </div>
+</div>
+<div class="container">
+  <br>
+  <div class="card">
+      <div class="card body">
+          <div class="container">
+              <div class="card-deck">
+                      <div class="card-body">
+                        <br> <br> <br> <br>
+                          <form class="registerForm" action="/user/login" method="POST">
+                          
+                              <div class="form-group">
+                               <br><center> 
+                                <div class="form-group">
+                                  <button type="button" class="btn btn-outline-primary"><a href="/user/logout"> Logout </a></button>
+                                  <button type="button" class="btn btn-outline-primary"> <a href="/user/profile"> Ubah Profile </a></button>
+                                  <button type="button" class="btn btn-outline-primary"><a href="/user/recommendation"> Dapatkan Rekomendasi Investasi </a></button>
+                                  <button type="button" class="btn btn-outline-primary"><a href="/user/invest"> Investment </a></button>
+                                </div>
+                              </div>
+                         
+                          </form>
+                          <br> <br> <br> <br>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
 </body>
 </html>
