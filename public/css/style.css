@@ -45,7 +45,7 @@ form label {
 }
 
 #actioNavbar {
-    background-color: rgb(238, 238, 238);
+    background-color:rgb(69,203,178);
     border-bottom: 1px solid #e1f6ff;
 }
 
@@ -84,6 +84,12 @@ form label {
 
 .btn-danger {
     background-color: rgb(229, 9, 20);
+}
+
+.newButton {
+    size: 30%;
+    background-color: rgb(69,203,178);
+    border-color:black
 }
 
 #featureList .card {
