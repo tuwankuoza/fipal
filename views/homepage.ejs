@@ -3,28 +3,41 @@
 <body>
 
   <%- include('partials/navbar') %>
-  <br>
-  <div class="text-center">
-      <div class="container actioTitle">
-          <div class="alert" role="alert">
-              <h1>Welcome to Fipal, your easy-to-go financial advisor!</h1>
-          </div>
-      </div>
-  </div>
-  <br>
-  <div class="text-center">
+
+    <br>
+    <div class="text-center">
+        <div class="container actioTitle">
+            <div class="alert" role="alert">
+                <h2>Welcome to FIPAL<span class="actio-text"></span> ! your   <span class="actio-text">easy-to-go</span> financial advisor!</h2>
+            </div>
+        </div>
+    </div>
+
+    <br>
     <div class="container">
         <div class="card">
             <div class="card body">
                 <div class="container">
-                    <br>
-                    <h4><a href="/user/login"> User Login </a></h4>
-                    <br>
-                    <h4> <a href="/user/register"> Create Account </a></h4>
-                </div>
+                    <div class="card-body">
+                        <form action="/todos/add" method="POST">
+                            <div class="form-group">
+                                <div class="alert alert-danger">
+                                    <div class="form-group">
+                                        <label for="deadline"><a href="/user/login"> User Login </a></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                                <div class="alert alert-info">
+                                    <div class="form-group">
+                                        <label for="reminder_date"><a href="/user/register"> Create Account </a></label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-  </div>
 </body>
 </html>
