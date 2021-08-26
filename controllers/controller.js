@@ -1,7 +1,8 @@
 const {User, Investment, UserInvestment} = require('../models/index')
 const { verifyPassword } = require('../helpers/bcrypt')
-const { addPercent, addTahun } = require('../helpers/addSymbol')
+const { addPercent, addTahun, idrFormatter } = require('../helpers/addSymbol')
 const { investmentAdvisor } = require('../helpers/advisor')
+const {calculateGain, proyeksiUsia} = require('../helpers/calculateGain')
 
 class Controller {
   // login
@@ -79,14 +80,28 @@ class Controller {
   }
   // user dashboard
   static userDashboard (req, res) {
-    let id = req.session.userId
+    let id = Number(req.session.userId)
     User.findByPk(id)
     .then(data => res.render('user-dashboard', {data}))
     .catch(err => res.send(err))
   }
   // chart
   static seeChart(req, res) {
-    res.render('chart')
+    let investId = Number(req.params.id)
+    let userId = Number(req.session.userId)
+
+    let userData;
+    User.findByPk(userId)
+    .then(data => {
+      userData = data
+      return Investment.findByPk(investId)
+    })
+    .then(data => {
+      // Pake helper untuk dapetin data chart
+      let gainArr = calculateGain(userData.income, userData.expense, data.gain, 10)
+      let usiaArr = proyeksiUsia(userData.age, 10)
+      res.render('chart', {userData, data, gainArr, usiaArr, idrFormatter})
+    })
   }
   // user investment
   static getUserInvest(req, res) {
