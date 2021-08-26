@@ -2,7 +2,7 @@
 <body>
 <%- include('partials/navbar') %>
 
-<% let Error = {} %> 
+
 <% let emailError = null %> 
 <% let nameError = null %> 
 <% let ageError = null %> 
@@ -14,14 +14,14 @@
 
 
 <% for (let i = 0; i < 8; i++){ %>
-    <% errors[i] === 'Validation error: Email tidak boleh kosong' ? emailError = 'Email tidak boleh kosong'  : '' %>
-    <% errors[i] === 'Validation error: Nama tidak boleh kosong' ?  nameError = 'Nama tidak boleh kosong'  : ''  %>
-    <% errors[i] === 'Validation error: Age tidak boleh kosong' ?  ageError = 'Age tidak boleh kosong'  : ''  %>
-    <% errors[i] === 'Validation error: Profession tidak boleh kosong' ?  professionError = 'Profession tidak boleh kosong'   : ''  %>
-    <% errors[i] === 'Validation error: City tidak boleh kosong' ?  cityError = 'City tidak boleh kosong'  : ''  %>
-    <% errors[i] === 'Validation error: Nomor telepon tidak boleh kosong' ?  phoneError = 'Nomor telepon tidak boleh kosong'  : ''  %>
-    <% errors[i] === 'Validation error: Pendapatan tidak boleh kosong' ?  incomeError = 'Pendapatan tidak boleh kosong'  : ''  %>
-    <% errors[i] === 'Validation error: Pengeluaran tidak boleh kosong' ?  expenseError = 'Pengeluaran tidak boleh kosong' : ''  %>
+    <% errors[i] === 'Email tidak boleh kosong' ? emailError = 'Email tidak boleh kosong'  : '' %>
+    <% errors[i] === 'Nama tidak boleh kosong' ?  nameError = 'Nama tidak boleh kosong'  : ''  %>
+    <% errors[i] === 'Age tidak boleh kosong' ?  ageError = 'Age tidak boleh kosong'  : ''  %>
+    <% errors[i] === 'Profession tidak boleh kosong' ?  professionError = 'Profession tidak boleh kosong'   : ''  %>
+    <% errors[i] === 'City tidak boleh kosong' ?  cityError = 'City tidak boleh kosong'  : ''  %>
+    <% errors[i] === 'Nomor telepon tidak boleh kosong' ?  phoneError = 'Nomor telepon tidak boleh kosong'  : ''  %>
+    <% errors[i] === 'Pendapatan tidak boleh kosong' ?  incomeError = 'Pendapatan tidak boleh kosong'  : ''  %>
+    <% errors[i] === 'Pengeluaran tidak boleh kosong' ?  expenseError = 'Pengeluaran tidak boleh kosong' : ''  %>
  
 <% } %>   
 
@@ -112,12 +112,6 @@
             </div>
         </div>
     </div>
-
-    <% errors.forEach(el => { %>
-      <center><p style="color: red"><%= el %></p></center>
-      <% }) %>
-    
-    
 
 </body>
 </html>

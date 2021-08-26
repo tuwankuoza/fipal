@@ -84,8 +84,10 @@ class Controller {
       res.redirect('/user')
     })
    .catch(err => {
-      console.log(err.message)
-      res.redirect(`/user/profile/?error=${err.message}`)
+      const errors = err.errors.map(el =>{
+        return el.message 
+      })
+      res.redirect(`/user/profile/?error=${errors}`)
     })
   }
   // user dashboard
