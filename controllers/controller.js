@@ -1,5 +1,7 @@
 const {User, Investment, UserInvestment} = require('../models/index')
 const { verifyPassword } = require('../helpers/bcrypt')
+const { addPercent, addTahun } = require('../helpers/addSymbol')
+const { investmentAdvisor } = require('../helpers/advisor')
 
 class Controller {
   // login
@@ -59,7 +61,7 @@ class Controller {
     .catch(err => res.send(err))
   }
   static postUserProfile(req, res) {
-    let id = req.session.userId
+    let id = Number(req.session.userId)
     let {name, age, profession, city, phone, income, expense} = req.body
     User.update({
       name: name,
@@ -80,6 +82,82 @@ class Controller {
     let id = req.session.userId
     User.findByPk(id)
     .then(data => res.render('user-dashboard', {data}))
+    .catch(err => res.send(err))
+  }
+  // chart
+  static seeChart(req, res) {
+    res.render('chart')
+  }
+  // user investment
+  static getUserInvest(req, res) {
+    let id = Number(req.session.userId)
+    User.findByPk(id, {
+      include: [Investment]
+    })
+    .then(data => {
+      res.render('user-investment', {data, addPercent, addTahun})
+    })
+    .catch(err => res.send(err))
+  }
+  // add user investment
+  static getAddInvestment(req, res) {
+    let id = Number(req.session.userId)
+    let investmentData;
+
+    Investment.findAll()
+    .then(data => {
+      investmentData = data
+      return User.findByPk(id, {
+        include: [Investment]
+      })
+    })
+    .then(data => res.render('user-investment-add', {investmentData, data}))
+    .catch(err => res.send(err))
+  }
+  static postAddInvestment(req, res) {
+    let userId = Number(req.session.userId)
+    let {period, InvestmentId} = req.body
+    UserInvestment.create({
+      period: Number(period),
+      UserId: userId,
+      InvestmentId: Number(InvestmentId),
+      createdAt: new Date (),
+      updatedAt: new Date ()
+    })
+    .then(() => res.redirect('/user/invest'))
+  }
+  static getRecommendation(req, res) {
+    let userId = Number(req.session.userId)
+    let userData;
+    User.findByPk(userId, {
+      include: [Investment]
+    })
+    .then(data => {
+      userData = data
+      // Dapatin Rekomendasi Finansial
+      let advice = investmentAdvisor(data.income, data.expense, data.age)
+      return Investment.findAll({
+        where: {name:advice}
+      })
+    })
+    .then(data => {
+      // Masukin rekomendasi investasi ke dalam UserInvestment
+      data.forEach(each => {
+        UserInvestment.create({
+          period: 10,
+          UserId: userId,
+          InvestmentId: Number(each.id),
+          createdAt: new Date (),
+          updatedAt: new Date ()
+        })
+      });
+      // return User.findByPk(userId, {
+      //   include: [Investment]
+      // })
+    })
+    .then(() => {
+      res.redirect('/user/invest')
+    })
     .catch(err => res.send(err))
   }
 }
