@@ -10,16 +10,17 @@
     <a>Instrumen Investasi: <%= data.name %></a>
     <canvas id="myChart"></canvas>
     <br><br><br>
-    <p style="margin: auto; text-align: center;">
-      Jika Bapak/Ibu <%= userData.name %> rutin menabung setiap bulannya <br>
-      dengan menyisihkan <%= idrFormatter(userData.income - userData.expense) %> dari sisa pendapatan maka, <br>
-      10 tahun dari sekarang, yaitu pada saat usia Bapak/Ibu mencapai <%= usiaArr[usiaArr.length-1] %> tahun, <br>
-      Bapak/Ibu diproyeksikan akan memiliki aset investasi dalam bentuk <%= data.name %> <br>
-      dengan nilai total <%= idrFormatter(gainArr[gainArr.length-1]) %>.
+
+    <p style="margin-left:100px ; text-align: left;">
+      <h5>Jika pilihan instrumentnya adalah  <strong><%= data.name %>, </strong> </h5><br>
+      <h5>dan User <strong><%= userData.name %> </strong> dapat menyisihkan uang sebesar <strong><%= idrFormatter(userData.income - userData.expense) %> </strong> per bulannya,<br></h5>
+      <h5>Dalam waktu 10 tahun, saat user <strong><%= userData.name %> </strong> mencapai <%= usiaArr[usiaArr.length-1] %> tahun <br></h5>
+      <h5>maka dapat diproyeksikan akan memiliki aset investasi senilai total <strong><%= idrFormatter(gainArr[gainArr.length-1]) %></strong> </h5>
     </p>
 
+
   </div><br><br>
-  <div style="text-align: center;">
+  <div style="text-align: center; margin-top: 30px;">
     <button type="button" class="btn btn-outline-primary"><a href="/user/invest">Kembali</a></button>
   </div>
   <script>

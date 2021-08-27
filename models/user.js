@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       User.belongsToMany(models.Investment, {through: 'UserInvestment', foreignKey: "UserId"})
     }
     addTitle(){
-      return `Mr/s ${Model.name}`
+      return `Mr/s ${this.name}`
     }
   };
   User.init({
@@ -50,7 +50,8 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           msg: 'Age tidak boleh kosong'
-        }
+        },
+        min: 18
       }
     },
     profession: {
