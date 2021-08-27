@@ -34,4 +34,7 @@ userRouter.get('/chart/:id', Controller.seeChart);
 // logout page
 userRouter.get('/logout', Controller.logout);
 
+// delete
+userRouter.get('/delete/:id', Controller.deleteUserInvestment);
+
 module.exports = userRouter
