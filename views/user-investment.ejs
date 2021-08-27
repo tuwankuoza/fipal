@@ -1,19 +1,23 @@
 <%- include('partials/head', {pageTitle: 'Investment'}) %>
 <body>
-<%- include('partials/navbar') %>
+<%- include('partials/navbarloggedin') %>
 
   <% if(!data.name || !data.age || !data.profession || !data.city || !data.phone || !data.income || !data.expense) { %>
-   
-    <h2>Anda Belum Melengkapi data profil</h2>
-    <button type="button" class="btn btn-outline-primary"><h2><a href="/user/profile">Lengkapi data profil anda</a></h2></button>
+    
+    <h3 style="text-align: center;">Maaf, data profil anda belum lengkap!</h3><br>
+    <div style="text-align: center;">
+      <button style="text-align: center;" type="button" class="btn btn-outline-primary">
+        <h2><a href="/user/profile">Lengkapi data profil anda</a></h2>
+      </button>
+    </div>
   
   <% } else { %>
     <br>
-    <h4 style="margin-left:50px"><%= data.name %>'s Investment Plan</h4><br><br>
     <% if(data.Investments.length === 0) { %>
       <h2>Anda Belum Memiliki Portofolio Investasi</h2>
       <h2><a href="invest/add">Tambahkan</a></h2>
     <% } else { %>
+      <h4 style="margin-left:50px"><%= data.name %>'s Investment Plan</h4><br><br>
       <div style="margin-left:50px">
       <table style="width:80%" class="table table-hover">
         <tr>
@@ -40,7 +44,14 @@
           </tr>
         <% }) %>
       </table>
-    </div>
+    </div><br><br>
+      <% if(data.Investments.length < 6) { %>
+        <div style="text-align: center;">
+          <h3>Tambah Plan Investasi Lainnya</h3><br>
+          <button type="button" class="btn btn-outline-primary"><a href="/invest/add">Tambahkan Plan Investasi</a></button>
+        </div>
+      <% } %>
+
     <% } %>
 
   <% } %>

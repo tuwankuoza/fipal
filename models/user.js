@@ -16,6 +16,9 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.belongsToMany(models.Investment, {through: 'UserInvestment', foreignKey: "UserId"})
     }
+    addTitle(){
+      return `Mr/s ${Model.name}`
+    }
   };
   User.init({
     email: {
