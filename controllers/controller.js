@@ -187,6 +187,17 @@ class Controller {
     })
     .catch(err => res.send(err))
   }
+  // delete
+  static deleteUserInvestment(req, res) {
+    let userId = Number(req.session.userId)
+    let investId = Number(req.params.id)
+
+    UserInvestment.destroy({
+      where: {UserId: userId},
+      where: {InvestmentId: investId}
+    })
+    .then(() => res.redirect('/user/invest'))
+  }
 }
 
 
