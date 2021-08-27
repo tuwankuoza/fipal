@@ -2,19 +2,25 @@
 <body>
 <%- include('partials/navbarloggedin') %>
   
-  <h1><%= data.name %>, Tambahkan Instrumen investasi yang anda inginkan!</h1>
+  <h2 style="text-align: center;"><%= data.addTitle() %>, Tambahkan Instrumen investasi yang anda inginkan!</h2>
 
-  <form action="/user/invest/add" method="POST">
-    <label>Periode</label><br>
-    <input type="number" name="period"><br><br>
-
-    <label>Instrumen Investasi</label><br>
-    <select name="InvestmentId">
-    <% investmentData.forEach(el => { %>
-      <option value="<%= el.id %>"><%= el.name %></option>
-    <% }) %>
-  </select><br><br>
-  <button type="submit" value="submit">Tambahkan</button>
-  </form>
+  <div style="text-align: center;">
+    <form action="/user/invest/add" method="POST">
+      <label>Periode</label><br>
+      <input type="number" name="period" placeholder="10"><br><br>
+  
+      <label>Instrumen Investasi</label><br>
+      <select name="InvestmentId">
+      <% investmentData.forEach(el => { %>
+        <option value="<%= el.id %>"><%= el.name %></option>
+      <% }) %>
+    </select><br><br>
+    <button type="submit" value="submit" class="btn btn-outline-primary">Tambahkan</button>
+    </form>
+    <br><br>
+    <div style="text-align: center;">
+      <button type="button" class="btn btn-outline-primary"><a href="/user/invest">Kembali</a></button>
+    </div>
+  </div>
 </body>
 </html>

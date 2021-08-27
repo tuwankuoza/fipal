@@ -17,8 +17,8 @@
       <h2>Anda Belum Memiliki Portofolio Investasi</h2>
       <h2><a href="invest/add">Tambahkan</a></h2>
     <% } else { %>
-      <h4 style="margin-left:50px"><%= data.name %>'s Investment Plan</h4><br><br>
-      <div style="margin-left:50px">
+      <h2 style="text-align: center;"><%= data.addTitle() %>'s Investment Plan</h2><br><br>
+      <div style="margin-left:220px;">
       <table style="width:80%" class="table table-hover">
         <tr>
           <th>Instrument</th>
@@ -48,7 +48,7 @@
       <% if(data.Investments.length < 6) { %>
         <div style="text-align: center;">
           <h3>Tambah Plan Investasi Lainnya</h3><br>
-          <button type="button" class="btn btn-outline-primary"><a href="/invest/add">Tambahkan Plan Investasi</a></button>
+          <button type="button" class="btn btn-outline-primary"><a href="/user/invest/add">Tambahkan Plan Investasi</a></button>
         </div>
       <% } %>
 
